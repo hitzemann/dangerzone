@@ -76,7 +76,7 @@ jobs:
             if [ -f "/caches/container.tar.gz" ]; then
               echo "Already cached, skipping"
             else
-              docker build --cache-from=dangerzone.rocks/dangerzone --tag dangerzone.rocks/dangerzone container
+              docker build --cache-from=hitzeman/dangerzone --tag hitzeman/dangerzone container
             fi
       - run:
           name: Save Dangerzone image and image-id.txt to cache
@@ -85,9 +85,9 @@ jobs:
               echo "Already cached, skipping"
             else
               mkdir -p /caches
-              docker save -o /caches/container.tar dangerzone.rocks/dangerzone
+              docker save -o /caches/container.tar hitzeman/dangerzone
               gzip -f /caches/container.tar
-              docker image ls dangerzone.rocks/dangerzone | grep "dangerzone.rocks/dangerzone" | tr -s ' ' | cut -d' ' -f3 > /caches/image-id.txt
+              docker image ls hitzeman/dangerzone | grep "hitzeman/dangerzone" | tr -s ' ' | cut -d' ' -f3 > /caches/image-id.txt
             fi
       - save_cache:
           key: v1-{{ checksum "container/Dockerfile" }}-{{ checksum "container/dangerzone.py" }}

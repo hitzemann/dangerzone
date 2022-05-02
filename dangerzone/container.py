@@ -22,7 +22,7 @@ else:
 
 
 # Name of the dangerzone container
-container_name = "dangerzone.rocks/dangerzone"
+container_name = "hitzeman/dangerzone"
 
 
 def exec(args, stdout_callback=None):
@@ -74,7 +74,7 @@ def convert(input_filename, output_filename, ocr_lang, stdout_callback):
     os.makedirs(safe_dir, exist_ok=True)
 
     if container_tech == "docker":
-        platform_args = ["--platform", "linux/amd64"]
+        platform_args = []
     else:
         platform_args = []
 

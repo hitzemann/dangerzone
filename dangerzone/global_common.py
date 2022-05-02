@@ -36,7 +36,7 @@ class GlobalCommon(object):
         self.appdata_path = appdirs.user_config_dir("dangerzone")
 
         # Container
-        self.container_name = "dangerzone.rocks/dangerzone"
+        self.container_name = "hitzeman/dangerzone"
 
         # Languages supported by tesseract
         self.ocr_languages = {
